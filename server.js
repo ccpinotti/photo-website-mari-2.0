@@ -9,7 +9,7 @@ const app = express();
 var db
 
 app.use(bodyParser.urlencoded({extended: true}))
-
+app.use(bodyParser.json())
 app.use(express.static('public'))
 
 app.set('view engine', 'ejs')
@@ -21,6 +21,26 @@ app.get('/', (req, res) => {
     }
   )
 });
+app.put('/quotes', (req, res) => {
+  //fetch
+  db.collection('quotes')
+  //query
+  .findOneAndUpdate({name: 'Yoda'}, {
+    // update
+    $set: {
+      name: req.body.name,
+      quote: req.body.quote
+    }
+  }, {
+    // options
+    sort: {_id: -1},
+    upsert: true
+    //callback
+  }, (err, result) => {
+    if (err) return res.send(err)
+    res.send(result)
+  })
+})
 
 app.post('/quotes', (req, res) => {
   console.log(db)
