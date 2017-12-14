@@ -1,0 +1,20 @@
+{
+  "name": "photo-website-mari-2.0",
+  "version": "1.0.0",
+  "description": "\"New and Imporved\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "Chris",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  }
+}
