@@ -52,6 +52,14 @@ app.post('/quotes', (req, res) => {
   })
 });
 
+app.delete('/quotes', (req, res) => {
+  db.collection('quotes').findOneAndDelete({name: req.body.name},
+  (err, result) => {
+    if (err) return res.send(500, err)
+    res.send({message: 'A Darth Vader got deleted'})
+  })
+})
+
 MongoClient.connect('mongodb://cpinotti:Yankees1886@ds137206.mlab.com:37206/photo-mari-2', (err, database) => {
   if (err) return console.log(err)
   db = database
