@@ -2,7 +2,10 @@ console.log('May the node be with you')
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
+
+const ObjectId = require('mongodb').ObjectID;
+
 
 const app = express();
 
@@ -21,21 +24,25 @@ app.get('/', (req, res) => {
     }
   )
 });
+// TODO: remove duplicate code
+app.get('/quotes', (req, res) => {
+  db.collection('quotes').find().toArray((err, result) => {
+    if (err) return console.log(err)
+    res.render('index.ejs', {quotes: result})
+    }
+  )
+});
+
 app.put('/quotes', (req, res) => {
-  //fetch
   db.collection('quotes')
-  //query
   .findOneAndUpdate({name: 'Yoda'}, {
-    // update
     $set: {
       name: req.body.name,
       quote: req.body.quote
     }
   }, {
-    // options
     sort: {_id: -1},
     upsert: true
-    //callback
   }, (err, result) => {
     if (err) return res.send(err)
     res.send(result)
@@ -43,7 +50,6 @@ app.put('/quotes', (req, res) => {
 })
 
 app.post('/quotes', (req, res) => {
-  console.log(db)
   db.collection('quotes').save(req.body, (err, result) => {
     if (err) return console.log(err)
 
@@ -53,9 +59,11 @@ app.post('/quotes', (req, res) => {
 });
 
 app.delete('/quotes', (req, res) => {
-  db.collection('quotes').findOneAndDelete({name: req.body.name},
+  console.log("delete")
+  db.collection('quotes').findOneAndDelete({_id: new ObjectId(req.body.id)},
   (err, result) => {
     if (err) return res.send(500, err)
+    console.log(err, result)
     res.send({message: 'A Darth Vader got deleted'})
   })
 })

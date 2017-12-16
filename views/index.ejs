@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="text/javascript"   src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <meta charset="UTF-8">
-    <title>MY APP</title>
+    <title>Mari</title>
   </head>
   <body>
   May Node and Express be with you.
@@ -12,6 +13,7 @@
         <li class="quote">
           <span><%= quotes[i].name %></span>
           <span><%= quotes[i].quote %></span>
+          <button class="deleteQuoteButton" data-id="<%=quotes[i]._id%>"> "Delete this quote" </button>
         </li>
       <% } %>
     </ul>
@@ -20,14 +22,15 @@
       <input type="text" placeholder="name" name="name">
       <input type="text" placeholder="quote" name="quote">
         <button type="submit">Submit</button>
+      </form>
+      <form>
         <div>
           <h2>Replace last quote written by Master Yoda with a quote written by Darth Vadar</h2>
+          <input id="updateName" type="text" placeholder="name" name="name">
+          <input type="text" placeholder="quote" name="quote">
           <button id="update"> Darth Vadar invades! </button>
         </div>
-        <div>
-          <h2>Delete Darth Vader's first quote</h2>
-          <button id ="delete"> Delete first Darth Vader Quote </button>
-    </form>
+      </form>
     <script src="main.js"></script>
   </body>
 </html>
