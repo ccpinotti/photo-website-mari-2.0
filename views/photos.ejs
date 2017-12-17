@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript"   src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Mari</title>
+  </head>
+  <body>
+    <h1>May Node and Express be with you.</h1>
+    <h3 class='message'><%= typeof flash !='undefined' ? flash : '' %></h3>
+    <form action="/uploadpicture" method="POST" enctype="multipart/form-data">
+      <input type="file" name="picture" accept="application/x-zip-compressed,image/*">
+      <input class="form-control" type="text" name="description" placeholder="Description or Message">
+      <input class="btn btn-primary" type="submit" value="submit">
+    </form>
+  </body>
+</html>
