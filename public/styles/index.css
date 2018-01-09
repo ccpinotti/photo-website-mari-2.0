@@ -1,0 +1,56 @@
+.app-header {
+  height: 700px;
+  max-width: 100%;
+  color: white;
+}
+.nav2 {
+  color: white;
+  float: right;
+  min-width: 100px;
+  width: auto !important;
+  width: 100px;
+  z-index: 1;
+  text-align: right;
+  display: inline;
+  color: white;
+}
+nav.nav-center ul {
+  text-align: center;
+}
+nav.nav-center ul li {
+  display: inline;
+  float: none;
+}
+nav.nav-center ul li a {
+  display: inline-block;
+}
+h3 {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding-right: 600px;
+  padding-top: 200px;
+}
+
+.nav-wrapper {
+  font-size: 200%;
+}
+.gallery-photo {
+  height: 500px;
+  width: 200px;
+}
+.all {
+  color: white;
+  float: right;
+  min-width: 100px;
+  width: auto !important;
+  width: 100px;
+  z-index: 1;
+  text-align: right;
+}
+.app-header {
+  background-image: url("../photos/files/IMG_0067.1.jpg");
+}
